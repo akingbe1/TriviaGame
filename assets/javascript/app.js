@@ -1,18 +1,14 @@
-var correct = 0;
-var incorrect = 0;
-var unamswered = 0;
-var timer = 10;
+var timer = 60;
 var intervalId;
-var score = 0;
 
-function checkAnswers() {
 
-}
 
+// This function checks if the selected answers are correct/incorrect/unchecked, tallies the score, and reveals the results
 
 function sixtySeconds() {
 
 var answer1 = $('input[name="Tiger"]');
+var score1 = 0; 
 for (var i =0; i < answer1.length; i++) {
 	if (answer1[i].checked) {
 		score1 = parseInt(answer1[i].value);
@@ -20,20 +16,23 @@ for (var i =0; i < answer1.length; i++) {
 }
 
 var answer2 = $('input[name="MLB"]');
+var score2 = 0; 
 for (var i =0; i < answer2.length; i++) {
 	if (answer2[i].checked) {
 		score2 = parseInt(answer2[i].value);
-	}
+	} 
 }
 
 var answer3 = $('input[name="NFL"]');
+var score3 = 0; 
 for (var i =0; i < answer3.length; i++) {
 	if (answer3[i].checked) {
 		score3 = parseInt(answer3[i].value);
-	}
+	} 
 }
 
 var answer4 = $('input[name="grand-slam"]');
+var score4 = 0;
 for (var i =0; i < answer4.length; i++) {
 	if (answer4[i].checked) {
 		score4 = parseInt(answer4[i].value);
@@ -41,69 +40,42 @@ for (var i =0; i < answer4.length; i++) {
 }
 
 var answer5 = $('input[name="NCAA"]');
+var score5 = 0; 
 for (var i =0; i < answer5.length; i++) {
 	if (answer5[i].checked) {
 		score5 = parseInt(answer5[i].value);
-	}
+	} 
 }
 
 var answer6 = $('input[name="NBA"]');
+var score6 = 0; 
 for (var i =0; i < answer6.length; i++) {
 	if (answer6[i].checked) {
 		score6 = parseInt(answer6[i].value);
-	}
+	} 
 }
 
-console.log(score1);
-console.log(score2);
-console.log(score3);
-console.log(score4);
-console.log(score5);
-console.log(score6);
 
 var result = score1 + score2 + score3 + score4 + score5 + score6;
-$("#results").html(result + "/6");
-
-
-
-
-
-
-	//var Tiger = checked;
-	//for(var i = 0; i < Tiger.length; i++) {
-	//	if (Tiger[i].checked) {
-	//		score = parseInt(Tiger[i].value);
-	//	}
-	//}
-
-	//	result = Tiger
-
-	//var answer1 = $('[name=Tiger]').checked;
-//	var answer2 = $('[name=MLB]').checked;
-//	var answer3 = $('[name=NFL]').checked;
-//	var answer4 = $('[name=grand-slam]').checked;
-//	var answer5 = $('[name=NCAA]').checked;
-//	var answer6 = $('[name=NBA]').checked;
-
-//	var score = answer1 + answer2 + answer3 + answer4 + answer5 + answer6;
-//	 $("#results").html(score);
-//	 console.log(score);
-
-	// var answer = $('[name=Tiger]');
-	// for (var i = 0; i < answer.length; i++) {
-	 	//if (answer[i].checked) {
-	 	//	console.log(answer[i.value])
-	 //	}
-	// }
-
+$("#results").html("Questions answered correctly: " + result + "/6");
 
 }
 
 
-setTimeout(sixtySeconds, 1000 * 10);
 
 
-//create timer that counts down 60 seconds
+//When the "submit" button is cliekd, this function stops the timer and runs the sixtySeconds function to reveal the results 
+
+$("#submit").click(function() {
+	stop();
+	sixtySeconds();
+	
+});
+
+
+//This function counts the timer down from 60 seconds and stops once the time hits zero
+
+
 function decrement() {
 	timer--;
 	$("#time").html("<h2>" + timer + "</h2>");
@@ -113,18 +85,41 @@ function decrement() {
  }
 
 
-//$("#start").click(function() {
-//	decrememt();
-//}
+//This hides the trivia questions until the "start" button is clicked
+
+ $('#quiz').hide();
+
+
+ //This on-click function begins the quiz by showing the questions, clearing the previous answers,
+ //clearing the previosu results, setting the timer to 60 seconds an counts down, and runs the 
+ //sixtySeconds function when the time runs out
+
+ $("#start").click(function() {
+ 	$('input[name=Tiger]').attr('checked',false);
+ 	$('input[name=MLB]').attr('checked',false);
+ 	$('input[name=NFL]').attr('checked',false);
+ 	$('input[name=grand-slam]').attr('checked',false);
+ 	$('input[name=NCAA]').attr('checked',false);
+ 	$('input[name=NBA]').attr('checked',false);
+    $('#quiz').show();
+    $("#results").empty();
+    timer = 60;
+    run();
+	decrement();
+	setTimeout(sixtySeconds, 1000 * 60);
+
+});
+
+ //This run function begins the timer and counts down in one second intervals
 
  function run() {
     intervalId = setInterval(decrement, 1000);
  }
 
+
+//This function stops the timer
+
 function stop() {
      clearInterval(intervalId);
  }
 
-
-decrement();
-run();
