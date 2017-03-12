@@ -8,39 +8,50 @@
 </head>
 <body>
 
-<div id="time"></div>
+<div id="quiz">
 
-<p>What sport does Tiger Woods play?</p>
-<input type="radio" name="Tiger" value="incorrect"> Basketball 
-<input type="radio" name="Tiger" value="correct"> Golf
-<input type="radio" name="Tiger" value="incorrect"> Football
-<input type="radio" name="Tiger" value="incorrect"> Tennis
+	<input id= "start" type="submit" value="Start">
 
-<p>How many innings are in a Major League Baseball game?</p>
-<input type="radio" name="MLB" value="9"> 9 
-<input type="radio" name="MLB" value="incorrect"> 12
-<input type="radio" name="MLB" value="incorrect"> 7
-<input type="radio" name="MLB" value="incorrect"> 16
+	<div id="time"></div>
 
-<p>An NFL football field is how many yards long?</p>
-<input type="radio" name="NFL" value="incorrect"> 50 
-<input type="radio" name="NFL" value="100"> 100
-<input type="radio" name="NFL" value="incorrect"> 150
-<input type="radio" name="NFL" value="incorrect"> 200
+	<p>What sport does Tiger Woods play?</p>
+	<input id="Tiger" type="radio" name="Tiger" value="0"> Basketball 
+	<input type="radio" name="Tiger" value="1"> Golf
+	<input type="radio" name="Tiger" value="0"> Football
+	<input type="radio" name="Tiger" value="0"> Tennis
 
-<p>True or False: A pitch has clocked in at over 100mph in Major League Baseball?</p>
-<input type="radio" name="pitch" value="True"> True
-<input type="radio" name="pitch" value="incorrect"> False
+	<p>How many innings are in a Major League Baseball game?</p>
+	<input type="radio" name="MLB" value="1"> 9 
+	<input type="radio" name="MLB" value="0"> 12
+	<input type="radio" name="MLB" value="0"> 7
+	<input type="radio" name="MLB" value="0"> 16
 
-<p>How many teams make it to the NCAA basketball tournament?</p>
-<input type="radio" name="NCAA" value="incorrect"> 25 
-<input type="radio" name="NCAA" value="incorrect"> 32
-<input type="radio" name="NCAA" value="incorrect"> 64
-<input type="radio" name="NCAA" value="68"> 68
+	<p>An NFL football field is how many yards long?</p>
+	<input type="radio" name="NFL" value="0"> 50 
+	<input type="radio" name="NFL" value="1"> 100
+	<input type="radio" name="NFL" value="0"> 150
+	<input type="radio" name="NFL" value="0"> 200
 
-<p>True or False: Michael Jordan holds the record for most points in an NBA game</p>
-<input type="radio" name="NBA" value="incorrect"> True
-<input type="radio" name="NBA" value="False"> False
+	<p>True or False: In baseball, a grand slam occurs when a player hits a home run while the bases are loaded?</p>
+	<input type="radio" name="grand-slam" value="1"> True
+	<input type="radio" name="grand-slam" value="0"> False
+
+	<p>How many teams make it to the NCAA basketball tournament?</p>
+	<input type="radio" name="NCAA" value="0"> 25 
+	<input type="radio" name="NCAA" value="0"> 32
+	<input type="radio" name="NCAA" value="0"> 64
+	<input type="radio" name="NCAA" value="1"> 68
+
+	<p>True or False: Michael Jordan holds the record for most points in an NBA game</p>
+	<input type="radio" name="NBA" value="0"> True
+	<input type="radio" name="NBA" value="1"> False
+
+</div>
+
+<div>
+	<p>Questions answered correctly: <span id="results"></span></p>
+</div>
+
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
 
