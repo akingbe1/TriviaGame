@@ -1,3 +1,20 @@
 body {
 	background-image: url(seamless-sports-pattern-background-38410984.jpg);
+    
 }
+
+h1  {
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+   
+#results	{
+    color: red;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#quiz {
+	background: cyan;
+	width: 75%;
+}
+
