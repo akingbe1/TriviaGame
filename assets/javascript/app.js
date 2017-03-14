@@ -57,7 +57,7 @@ for (var i =0; i < answer6.length; i++) {
 
 
 var result = score1 + score2 + score3 + score4 + score5 + score6;
-$("#results").html("Questions answered correctly: " + result + "/6");
+$("#results").html("Questions Answered Correctly: " + result + "/6");
 
 }
 
